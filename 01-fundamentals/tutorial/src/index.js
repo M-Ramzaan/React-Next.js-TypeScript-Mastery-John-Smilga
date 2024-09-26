@@ -65,25 +65,27 @@ import ReactDOM from "react-dom/client";
 //3-<React.fragment></React.fragment>
 //4-<></>
 
-function Greeting() {
-  return (
-    <section>
-      <h3>Hello People</h3>
-      <ul>
-        <li>
-          <a href="#">Hello World</a>
-        </li>
-      </ul>
-      <h2>Hello World</h2>
-    </section>
-  );
-}
+//Note: Take care of one thing always use parenthesis after return if you don't use it then make sure the opening tag is in front of return means it is in the same line where return is.
 
-export default Greeting;
+// function Greeting() {
+//   return (
+//     <section>
+//       <h3>Hello People</h3>
+//       <ul>
+//         <li>
+//           <a href="#">Hello World</a>
+//         </li>
+//       </ul>
+//       <h2>Hello World</h2>
+//     </section>
+//   );
+// }
 
-const root = ReactDOM.createRoot(document.getElementById("root"));
+// export default Greeting;
 
-root.render(<Greeting />);
+// const root = ReactDOM.createRoot(document.getElementById("root"));
+
+// root.render(<Greeting />);
 
 //We use camelCase names in naming conventions
 //We use html tags attributes here as in camelCase naming convention not same as we use in html for example below tags,
@@ -106,3 +108,26 @@ return (
     <input readonly id='name' />
 </div>
 */
+
+//Nest Components-Topic 03
+
+function Greeting() {
+  return (
+    <div>
+      <Person />
+      <Message />
+    </div>
+  );
+}
+export default Greeting;
+
+//We make the component separately and then use these components inside the main components.
+
+const Person = () => <h2>Muhammad Ramzan</h2>;
+const Message = () => {
+  return <p>I am learning React</p>;
+};
+
+const root = ReactDOM.createRoot(document.getElementById("root"));
+
+root.render(<Greeting />);
